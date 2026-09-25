@@ -1,0 +1,12 @@
+public class Question1 {
+    public static void main(String[] args) {
+
+        int sum = 0;
+
+        for (int i = 111; i <= 199; i += 2) {
+            sum += i;
+        }
+
+        System.out.println("Sum = " + sum);
+    }
+}

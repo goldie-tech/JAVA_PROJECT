@@ -1,0 +1,121 @@
+public class Question3 {
+
+    // Check whether score is valid
+    public static boolean isValid(double score) {
+
+        return score >= 0 && score <= 100;
+    }
+
+    // Calculate final score
+    public static double calculateFinalScore(
+            double tutorialScore,
+            double labTestScore,
+            double projectScore,
+            double examScore) {
+
+        return (0.1 * tutorialScore)
+                + (0.2 * labTestScore)
+                + (0.3 * projectScore)
+                + (0.4 * examScore);
+    }
+
+    // Generate letter grade
+    public static char generateLetterGrade(double finalScore) {
+
+        if (finalScore >= 85) {
+            return 'A';
+
+        } else if (finalScore >= 75) {
+            return 'B';
+
+        } else if (finalScore >= 65) {
+            return 'C';
+
+        } else if (finalScore >= 55) {
+            return 'D';
+
+        } else {
+            return 'F';
+        }
+    }
+
+    public static void main(String[] args) {
+
+        String[] studentNames = {
+            "Gwen",
+            "Amanda",
+            "Genevive",
+            "Terrance",
+            "Charles"
+        };
+
+        double[] tutorialScores = {
+            80,
+            75,
+            15,
+            80,
+            70
+        };
+
+        double[] labTestScores = {
+            76,
+            66,
+            80,
+            70,
+            85
+        };
+
+        double[] projectScores = {
+            71.5,
+            61.5,
+            57,
+            65,
+            76
+        };
+
+        double[] examScores = {
+            76.2,
+            66.3,
+            71,
+            60,
+            60
+        };
+
+        System.out.println("Student Results");
+        System.out.println("---------------------------------------------");
+
+        for (int i = 0; i < studentNames.length; i++) {
+
+            // Validate scores
+            if (!isValid(tutorialScores[i])
+                    || !isValid(labTestScores[i])
+                    || !isValid(projectScores[i])
+                    || !isValid(examScores[i])) {
+
+                System.out.println(
+                        studentNames[i] + ": Invalid score entered."
+                );
+
+                continue;
+            }
+
+            // Calculate final score
+            double finalScore = calculateFinalScore(
+                    tutorialScores[i],
+                    labTestScores[i],
+                    projectScores[i],
+                    examScores[i]
+            );
+
+            // Generate grade
+            char grade = generateLetterGrade(finalScore);
+
+            System.out.printf(
+                    "%-10s Final Score: %.2f  Grade: %c%n",
+                    studentNames[i],
+                    finalScore,
+                    grade
+            );
+        }
+    }
+}

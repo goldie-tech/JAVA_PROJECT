@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class GradeCalculator {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter tutorial score: ");
+        double tutorialScore = input.nextDouble();
+
+        System.out.print("Enter lab test score: ");
+        double labTestScore = input.nextDouble();
+
+        System.out.print("Enter project score: ");
+        double projectScore = input.nextDouble();
+
+        System.out.print("Enter exam score: ");
+        double examScore = input.nextDouble();
+
+        if (tutorialScore < 0 || tutorialScore > 100 ||
+            labTestScore < 0 || labTestScore > 100 ||
+            projectScore < 0 || projectScore > 100 ||
+            examScore < 0 || examScore > 100) {
+
+            System.out.println("Invalid score!");
+            System.out.println("Scores must be between 0 and 100.");
+
+        } else {
+
+            double finalScore =
+                    0.1 * tutorialScore +
+                    0.2 * labTestScore +
+                    0.3 * projectScore +
+                    0.4 * examScore;
+
+            char grade;
+
+            if (finalScore >= 80) {
+                grade = 'A';
+            } else if (finalScore >= 70) {
+                grade = 'B';
+            } else if (finalScore >= 60) {
+                grade = 'C';
+            } else if (finalScore >= 50) {
+                grade = 'D';
+            } else {
+                grade = 'F';
+            }
+
+            System.out.println("Final Score = " + finalScore);
+            System.out.println("Letter Grade = " + grade);
+        }
+
+        input.close();
+    }
+}

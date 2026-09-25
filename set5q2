@@ -1,0 +1,15 @@
+public class Question2 {
+    public static void main(String[] args) {
+
+        int sum = 0;
+
+        System.out.println("Adding multiples of 7 from 14 to 210:");
+
+        for (int i = 14; i <= 210; i += 7) {
+            sum += i;
+            System.out.println(i + " -- Running total: " + sum);
+        }
+
+        System.out.println("Final sum: " + sum);
+    }
+}

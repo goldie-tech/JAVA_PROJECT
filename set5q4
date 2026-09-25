@@ -1,0 +1,110 @@
+import java.util.Scanner;
+
+public class Question4 {
+
+    // Checks whether the score is valid
+    public static boolean isValid(double score) {
+        return score >= 0 && score <= 100;
+    }
+
+    // Calculates the final score
+    public static double calculateFinalScore(
+            double tutorialScore,
+            double labTestScore,
+            double projectScore,
+            double examScore) {
+
+        return (0.1 * tutorialScore)
+                + (0.2 * labTestScore)
+                + (0.3 * projectScore)
+                + (0.4 * examScore);
+    }
+
+    // Generates the letter grade
+    public static char generateLetterGrade(double finalScore) {
+
+        if (finalScore >= 85) {
+            return 'A';
+        } else if (finalScore >= 75) {
+            return 'B';
+        } else if (finalScore >= 65) {
+            return 'C';
+        } else if (finalScore >= 55) {
+            return 'D';
+        } else {
+            return 'F';
+        }
+    }
+
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        double tutorialScore;
+        double labTestScore;
+        double projectScore;
+        double examScore;
+
+        // Get valid tutorial score
+        do {
+            System.out.print("Enter tutorial score (0-100): ");
+            tutorialScore = input.nextDouble();
+
+            if (!isValid(tutorialScore)) {
+                System.out.println("Invalid score! Enter a value between 0 and 100.");
+            }
+
+        } while (!isValid(tutorialScore));
+
+        // Get valid lab test score
+        do {
+            System.out.print("Enter lab test score (0-100): ");
+            labTestScore = input.nextDouble();
+
+            if (!isValid(labTestScore)) {
+                System.out.println("Invalid score! Enter a value between 0 and 100.");
+            }
+
+        } while (!isValid(labTestScore));
+
+        // Get valid project score
+        do {
+            System.out.print("Enter project score (0-100): ");
+            projectScore = input.nextDouble();
+
+            if (!isValid(projectScore)) {
+                System.out.println("Invalid score! Enter a value between 0 and 100.");
+            }
+
+        } while (!isValid(projectScore));
+
+        // Get valid exam score
+        do {
+            System.out.print("Enter exam score (0-100): ");
+            examScore = input.nextDouble();
+
+            if (!isValid(examScore)) {
+                System.out.println("Invalid score! Enter a value between 0 and 100.");
+            }
+
+        } while (!isValid(examScore));
+
+        // Calculate final score
+        double finalScore = calculateFinalScore(
+                tutorialScore,
+                labTestScore,
+                projectScore,
+                examScore
+        );
+
+        // Generate letter grade
+        char letterGrade = generateLetterGrade(finalScore);
+
+        // Display results
+        System.out.println("\n----- Final Result -----");
+        System.out.printf("Final Score: %.2f%n", finalScore);
+        System.out.println("Letter Grade: " + letterGrade);
+
+        input.close();
+    }
+}

@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class MaxMin {
+    public static void main(String[] args) {
+
+        Scanner input = new Scanner(System.in);
+
+        System.out.print("Enter X: ");
+        int x = input.nextInt();
+
+        System.out.print("Enter Y: ");
+        int y = input.nextInt();
+
+        System.out.print("Enter Z: ");
+        int z = input.nextInt();
+
+        int max;
+        int min;
+
+        if (x >= y) {
+            if (x >= z) {
+                max = x;
+            } else {
+                max = z;
+            }
+        } else {
+            if (y >= z) {
+                max = y;
+            } else {
+                max = z;
+            }
+        }
+
+        if (x <= y) {
+            if (x <= z) {
+                min = x;
+            } else {
+                min = z;
+            }
+        } else {
+            if (y <= z) {
+                min = y;
+            } else {
+                min = z;
+            }
+        }
+
+        System.out.println("Maximum = " + max);
+        System.out.println("Minimum = " + min);
+
+        input.close();
+    }
+}
